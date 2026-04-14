@@ -1,0 +1,6 @@
+.DS_Store
+.env
+*.duckdb
+data/raw/
+data/exports/
+venv/
