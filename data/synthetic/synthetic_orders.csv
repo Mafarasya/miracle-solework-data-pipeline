@@ -1,0 +1,301 @@
+No,Tanggal,Nama,Jenis Sepatu,Jenis cuci,Harga,Discount,Total harga,Keterangan,Status Pembayaran,Kang Cuci,is_synthetic
+1,2025-01-02,Bella,Hoka,Reparasi,50000,5000,45000,Synthetic,Paid,Rio,True
+2,2025-01-10,Bella,Patrobas,Deep Clean,40000,0,40000,Synthetic,Paid,Rio,True
+3,2025-01-11,Andi,On Cloud,Deep Clean,45000,10000,35000,Synthetic,Paid,Vian,True
+4,2025-01-11,Andi,Asics,Deep Clean,65000,5000,60000,Synthetic,Paid,Amory,True
+5,2025-01-14,Reza,Adidas,Deep Clean,65000,10000,55000,Synthetic,Paid,Rio,True
+6,2025-01-16,Budi,Wakai,Deep Clean,45000,10000,35000,Synthetic,Paid,Rio,True
+7,2025-01-16,Gita,Compass,Deep Clean,60000,5000,55000,Synthetic,Paid,Amory,True
+8,2025-01-17,Oscar,Vans,Deep Clean,50000,5000,45000,Synthetic,Paid,Amory,True
+9,2025-01-19,Fajar,On Cloud,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+10,2025-01-19,Chandra,Skechers,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+11,2025-01-19,Bella,Converse,Deep Clean,65000,10000,55000,Synthetic,Paid,Vian,True
+12,2025-01-21,Chandra,Converse High,Deep Clean,45000,5000,40000,Synthetic,Paid,Amory,True
+13,2025-01-22,Putri,Onitsuka,Deep Clean,40000,0,40000,Synthetic,Paid,Rio,True
+14,2025-01-23,Chandra,Diadora,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+15,2025-01-23,Wulan,Adidas,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+16,2025-01-24,Xena,Warrior,Deep Clean,40000,0,40000,Synthetic,Paid,Amory,True
+17,2025-01-27,Wulan,Tas,Tas,90000,0,90000,Synthetic,Paid,Vian,True
+18,2025-01-28,Fajar,UnderArmour,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+19,2025-01-30,Eko,Tas,Tas,30000,0,30000,Synthetic,Paid,Rio,True
+20,2025-02-02,Mario,Hoka,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+21,2025-02-04,Karin,Skechers,Deep Clean,45000,5000,40000,Synthetic,Paid,Vian,True
+22,2025-02-05,Oscar,Vans,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+23,2025-02-07,Bella,Hoka,Deep Clean,50000,10000,40000,Synthetic,Paid,Rio,True
+24,2025-02-07,Dina,Reebok,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+25,2025-02-08,Erwin,Wakai,Deep Clean,60000,5000,55000,Synthetic,Paid,Amory,True
+26,2025-02-09,Mario,Converse High,Deep Clean,40000,10000,30000,Synthetic,Paid,Amory,True
+27,2025-02-11,Fira,Puma,Deep Clean,65000,5000,60000,Synthetic,Paid,Rio,True
+28,2025-02-18,Julia,Warrior,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+29,2025-02-18,Alif,Compass,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+30,2025-02-20,Tono,Diadora,Deep Clean,40000,5000,35000,Synthetic,Paid,Vian,True
+31,2025-02-22,Julia,Wakai,Deep Clean,65000,5000,60000,Synthetic,Paid,Vian,True
+32,2025-02-22,Bella,Patrobas,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+33,2025-02-25,Mario,On Cloud,Deep Clean,40000,5000,35000,Synthetic,Paid,Amory,True
+34,2025-02-26,Wulan,Adidas,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+35,2025-02-28,Yogi,Converse High,Deep Clean,45000,5000,40000,Synthetic,Paid,Rio,True
+36,2025-03-02,Nando,Onitsuka,Deep Clean,50000,5000,45000,Synthetic,Paid,Amory,True
+37,2025-03-05,Yogi,Reebok,Deep Clean,60000,5000,55000,Synthetic,Paid,Amory,True
+38,2025-03-05,Sari,Converse Allstar,Reparasi,50000,0,50000,Synthetic,Paid,Rio,True
+39,2025-03-09,Reza,Converse High,Deep Clean,50000,10000,40000,Synthetic,Paid,Vian,True
+40,2025-03-09,Nando,Diadora,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+41,2025-03-09,Lisa,Compass,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+42,2025-03-09,Hana,Asics,Fast Clean,35000,5000,30000,Synthetic,Paid,Vian,True
+43,2025-03-12,Reza,Zara,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+44,2025-03-13,Hana,Asics,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+45,2025-03-16,Lisa,Aerostreet,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+46,2025-03-17,Lukman,Zara,Deep Clean,50000,10000,40000,Synthetic,Paid,Rio,True
+47,2025-03-20,Vino,Compass,Deep Clean,40000,5000,35000,Synthetic,Paid,Rio,True
+48,2025-03-21,Fajar,Aerostreet,Deep Clean,65000,0,65000,Synthetic,Paid,Amory,True
+49,2025-03-21,Yogi,Vans,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+50,2025-03-21,Zara,Wakai,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+51,2025-03-22,Hesti,Wakai,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+52,2025-03-26,Imam,Onitsuka,Deep Clean,65000,5000,60000,Synthetic,Paid,Rio,True
+53,2025-03-31,Putri,Aerostreet,Deep Clean,60000,10000,50000,Synthetic,Paid,Amory,True
+54,2025-04-01,Erwin,Converse Allstar,Deep Clean,50000,10000,40000,Synthetic,Paid,Amory,True
+55,2025-04-03,Fajar,Karpet,Karpet,40000,5000,35000,Synthetic,Paid,Amory,True
+56,2025-04-05,Hesti,Patrobas,Deep Clean,60000,0,60000,Synthetic,Paid,Rio,True
+57,2025-04-06,Reza,Converse High,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+58,2025-04-09,Sari,Vans,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+59,2025-04-12,Fira,Diadora,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+60,2025-04-12,Chandra,On Cloud,Deep Clean,65000,5000,60000,Synthetic,Paid,Rio,True
+61,2025-04-12,Andi,Converse High,Deep Clean,45000,10000,35000,Synthetic,Paid,Rio,True
+62,2025-04-13,Xena,Adidas,Deep Clean,45000,5000,40000,Synthetic,Paid,Rio,True
+63,2025-04-18,Fira,Converse High,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+64,2025-04-19,Lisa,On Cloud,Deep Clean,40000,0,40000,Synthetic,Paid,Rio,True
+65,2025-04-19,Hana,Puma,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+66,2025-04-19,Mita,NB,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+67,2025-04-21,Hana,Compass,Deep Clean,40000,0,40000,Synthetic,Paid,Amory,True
+68,2025-04-22,Mita,Diadora,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+69,2025-04-22,Dewi,Tas,Tas,90000,10000,80000,Synthetic,Paid,Rio,True
+70,2025-04-23,Nadia,Adidas,Deep Clean,65000,0,65000,Synthetic,Paid,Amory,True
+71,2025-04-24,Alif,Zara,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+72,2025-04-25,Mario,On Cloud,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+73,2025-04-25,Ivan,Converse,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+74,2025-04-26,Dewi,Vans,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+75,2025-04-28,Citra,UnderArmour,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+76,2025-04-29,Imam,Skechers,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+77,2025-05-01,Dina,UnderArmour,Fast Clean,35000,0,35000,Synthetic,Paid,Amory,True
+78,2025-05-02,Sari,Hoka,Deep Clean,50000,10000,40000,Synthetic,Paid,Vian,True
+79,2025-05-04,Fira,Vans,Fast Clean,35000,0,35000,Synthetic,Paid,Vian,True
+80,2025-05-07,Bella,Patrobas,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+81,2025-05-08,Bella,Converse,Deep Clean,65000,5000,60000,Synthetic,Paid,Vian,True
+82,2025-05-08,Nando,Wakai,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+83,2025-05-09,Erwin,UnderArmour,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+84,2025-05-10,Dewi,Converse Allstar,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+85,2025-05-11,Imam,Aerostreet,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+86,2025-05-12,Vino,Hoka,Fast Clean,35000,5000,30000,Synthetic,Paid,Vian,True
+87,2025-05-16,Eko,Puma,Deep Clean,50000,5000,45000,Synthetic,Paid,Vian,True
+88,2025-05-18,Fira,Onitsuka,Deep Clean,65000,0,65000,Synthetic,Paid,Amory,True
+89,2025-05-22,Putri,Zara,Deep Clean,65000,5000,60000,Synthetic,Paid,Amory,True
+90,2025-05-22,Qori,Converse Allstar,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+91,2025-05-23,Vino,Compass,Deep Clean,40000,0,40000,Synthetic,Paid,Amory,True
+92,2025-05-23,Karin,Reebok,Fast Clean,35000,0,35000,Synthetic,Paid,Rio,True
+93,2025-05-23,Gita,Converse Allstar,Deep Clean,40000,5000,35000,Synthetic,Paid,Vian,True
+94,2025-05-24,Chandra,Reebok,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+95,2025-05-25,Xena,On Cloud,Reparasi,40000,0,40000,Synthetic,Paid,Vian,True
+96,2025-05-26,Dewi,Diadora,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+97,2025-05-26,Galih,Reebok,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+98,2025-05-27,Erwin,Converse,Fast Clean,35000,5000,30000,Synthetic,Paid,Amory,True
+99,2025-05-31,Galih,NB,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+100,2025-06-01,Yogi,Aerostreet,Deep Clean,45000,5000,40000,Synthetic,Paid,Rio,True
+101,2025-06-02,Mita,Converse Allstar,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+102,2025-06-04,Citra,NB,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+103,2025-06-06,Nadia,Skechers,Deep Clean,40000,10000,30000,Synthetic,Paid,Rio,True
+104,2025-06-08,Alif,Compass,Deep Clean,60000,10000,50000,Synthetic,Paid,Rio,True
+105,2025-06-09,Eko,Onitsuka,Deep Clean,60000,5000,55000,Synthetic,Paid,Rio,True
+106,2025-06-10,Hesti,Converse High,Deep Clean,65000,5000,60000,Synthetic,Paid,Vian,True
+107,2025-06-11,Andi,Converse High,Deep Clean,40000,5000,35000,Synthetic,Paid,Rio,True
+108,2025-06-14,Chandra,Hoka,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+109,2025-06-15,Putri,Hoka,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+110,2025-06-16,Fajar,Warrior,Deep Clean,65000,5000,60000,Synthetic,Paid,Amory,True
+111,2025-06-17,Reza,UnderArmour,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+112,2025-06-18,Galih,Warrior,Deep Clean,40000,0,40000,Synthetic,Paid,Amory,True
+113,2025-06-18,Mita,NB,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+114,2025-06-20,Zara,Hoka,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+115,2025-06-20,Kevin,NB,Deep Clean,60000,0,60000,Synthetic,Paid,Rio,True
+116,2025-06-20,Uma,Reebok,Deep Clean,65000,5000,60000,Synthetic,Paid,Vian,True
+117,2025-06-26,Ivan,Puma,Deep Clean,40000,10000,30000,Synthetic,Paid,Vian,True
+118,2025-06-27,Tono,Hoka,Deep Clean,65000,10000,55000,Synthetic,Paid,Vian,True
+119,2025-06-28,Vino,Diadora,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+120,2025-06-29,Mario,Adidas,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+121,2025-06-29,Julia,Skechers,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+122,2025-06-30,Lisa,Asics,Deep Clean,45000,5000,40000,Synthetic,Paid,Vian,True
+123,2025-07-02,Vino,Zara,Fast Clean,35000,0,35000,Synthetic,Paid,Amory,True
+124,2025-07-03,Dina,Nike,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+125,2025-07-05,Vino,Onitsuka,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+126,2025-07-07,Imam,NB,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+127,2025-07-09,Fajar,Wakai,Deep Clean,50000,10000,40000,Synthetic,Paid,Vian,True
+128,2025-07-09,Fira,Compass,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+129,2025-07-14,Wulan,Warrior,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+130,2025-07-15,Joko,NB,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+131,2025-07-16,Julia,Tas,Tas,30000,10000,20000,Synthetic,Paid,Rio,True
+132,2025-07-17,Citra,NB,Fast Clean,35000,0,35000,Synthetic,Paid,Rio,True
+133,2025-07-22,Vino,On Cloud,Fast Clean,35000,0,35000,Synthetic,Paid,Vian,True
+134,2025-07-23,Nadia,Vans,Deep Clean,40000,5000,35000,Synthetic,Paid,Rio,True
+135,2025-07-24,Fajar,Asics,Deep Clean,45000,10000,35000,Synthetic,Paid,Vian,True
+136,2025-07-27,Zara,Skechers,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+137,2025-07-28,Kevin,Nike,Deep Clean,45000,5000,40000,Synthetic,Paid,Amory,True
+138,2025-07-29,Vino,Zara,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+139,2025-08-04,Xena,Reebok,Deep Clean,40000,5000,35000,Synthetic,Paid,Rio,True
+140,2025-08-08,Alif,Patrobas,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+141,2025-08-10,Julia,Tas,Tas,90000,5000,85000,Synthetic,Paid,Amory,True
+142,2025-08-11,Galih,Wakai,Deep Clean,50000,5000,45000,Synthetic,Paid,Vian,True
+143,2025-08-12,Putri,Puma,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+144,2025-08-12,Bella,Warrior,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+145,2025-08-13,Mita,Puma,Deep Clean,40000,5000,35000,Synthetic,Paid,Amory,True
+146,2025-08-14,Vino,NB,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+147,2025-08-15,Alif,Reebok,Deep Clean,60000,10000,50000,Synthetic,Paid,Amory,True
+148,2025-08-19,Eko,Tas,Tas,80000,5000,75000,Synthetic,Paid,Rio,True
+149,2025-08-21,Xena,UnderArmour,Deep Clean,50000,10000,40000,Synthetic,Paid,Vian,True
+150,2025-08-23,Imam,Vans,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+151,2025-08-25,Alif,Converse High,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+152,2025-08-25,Mario,Patrobas,Deep Clean,40000,5000,35000,Synthetic,Paid,Amory,True
+153,2025-08-27,Lukman,UnderArmour,Deep Clean,45000,5000,40000,Synthetic,Paid,Rio,True
+154,2025-08-28,Zara,Tas,Tas,30000,0,30000,Synthetic,Paid,Rio,True
+155,2025-08-29,Dewi,Patrobas,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+156,2025-08-30,Mario,UnderArmour,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+157,2025-08-31,Galih,Hoka,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+158,2025-08-31,Gita,Compass,Deep Clean,40000,0,40000,Synthetic,Paid,Rio,True
+159,2025-09-04,Hesti,Skechers,Fast Clean,35000,10000,25000,Synthetic,Paid,Vian,True
+160,2025-09-07,Yogi,Adidas,Deep Clean,60000,5000,55000,Synthetic,Paid,Amory,True
+161,2025-09-12,Imam,UnderArmour,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+162,2025-09-17,Galih,Zara,Fast Clean,35000,0,35000,Synthetic,Paid,Rio,True
+163,2025-09-17,Vino,Aerostreet,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+164,2025-09-17,Yogi,Adidas,Deep Clean,65000,10000,55000,Synthetic,Paid,Amory,True
+165,2025-09-17,Dewi,Nike,Deep Clean,60000,5000,55000,Synthetic,Paid,Amory,True
+166,2025-09-17,Xena,On Cloud,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+167,2025-09-18,Alif,NB,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+168,2025-09-21,Ivan,Converse Allstar,Deep Clean,60000,0,60000,Synthetic,Paid,Rio,True
+169,2025-09-23,Dina,Skechers,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+170,2025-09-25,Uma,Aerostreet,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+171,2025-09-26,Sari,Warrior,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+172,2025-09-27,Alif,Converse,Fast Clean,35000,0,35000,Synthetic,Paid,Rio,True
+173,2025-10-01,Budi,Patrobas,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+174,2025-10-02,Julia,On Cloud,Deep Clean,65000,10000,55000,Synthetic,Paid,Amory,True
+175,2025-10-08,Bella,Tas,Tas,90000,10000,80000,Synthetic,Paid,Vian,True
+176,2025-10-08,Bella,Onitsuka,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+177,2025-10-10,Hana,Reebok,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+178,2025-10-11,Andi,Skechers,Deep Clean,45000,5000,40000,Synthetic,Paid,Rio,True
+179,2025-10-15,Bella,Warrior,Deep Clean,40000,5000,35000,Synthetic,Paid,Rio,True
+180,2025-10-17,Budi,Zara,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+181,2025-10-21,Fajar,Wakai,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+182,2025-10-23,Gita,On Cloud,Deep Clean,45000,5000,40000,Synthetic,Paid,Amory,True
+183,2025-10-24,Lukman,Compass,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+184,2025-10-25,Gita,Tas,Tas,80000,0,80000,Synthetic,Paid,Rio,True
+185,2025-10-29,Ivan,Nike,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+186,2025-10-31,Citra,Wakai,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+187,2025-11-01,Yogi,Converse Allstar,Deep Clean,40000,0,40000,Synthetic,Paid,Rio,True
+188,2025-11-06,Bella,Onitsuka,Deep Clean,40000,10000,30000,Synthetic,Paid,Amory,True
+189,2025-11-06,Gita,Reebok,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+190,2025-11-07,Nadia,Reebok,Deep Clean,60000,5000,55000,Synthetic,Paid,Rio,True
+191,2025-11-08,Lisa,Adidas,Fast Clean,35000,0,35000,Synthetic,Paid,Amory,True
+192,2025-11-09,Putri,Converse Allstar,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+193,2025-11-10,Chandra,Converse Allstar,Deep Clean,65000,5000,60000,Synthetic,Paid,Vian,True
+194,2025-11-12,Nadia,NB,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+195,2025-11-13,Mario,Patrobas,Fast Clean,35000,0,35000,Synthetic,Paid,Rio,True
+196,2025-11-15,Reza,Onitsuka,Deep Clean,60000,0,60000,Synthetic,Paid,Rio,True
+197,2025-11-15,Hana,Aerostreet,Deep Clean,45000,5000,40000,Synthetic,Paid,Rio,True
+198,2025-11-19,Joko,Hoka,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+199,2025-11-19,Tono,Patrobas,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+200,2025-11-21,Tono,Aerostreet,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+201,2025-11-22,Chandra,Converse,Reparasi,50000,0,50000,Synthetic,Paid,Vian,True
+202,2025-11-22,Gita,Zara,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+203,2025-11-24,Fira,Skechers,Deep Clean,60000,0,60000,Synthetic,Paid,Rio,True
+204,2025-11-24,Ivan,On Cloud,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+205,2025-11-24,Putri,Puma,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+206,2025-11-26,Qori,Nike,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+207,2025-11-27,Xena,Patrobas,Deep Clean,60000,0,60000,Synthetic,Paid,Rio,True
+208,2025-11-30,Putri,Karpet,Karpet,30000,0,30000,Synthetic,Paid,Vian,True
+209,2025-12-04,Erwin,Converse Allstar,Deep Clean,45000,5000,40000,Synthetic,Paid,Amory,True
+210,2025-12-06,Wulan,Converse High,Deep Clean,60000,10000,50000,Synthetic,Paid,Amory,True
+211,2025-12-07,Hana,Puma,Fast Clean,35000,10000,25000,Synthetic,Paid,Rio,True
+212,2025-12-07,Hesti,Vans,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+213,2025-12-08,Qori,Converse,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+214,2025-12-09,Lisa,Puma,Deep Clean,40000,5000,35000,Synthetic,Paid,Amory,True
+215,2025-12-09,Ivan,Reebok,Deep Clean,60000,0,60000,Synthetic,Paid,Rio,True
+216,2025-12-10,Kevin,Zara,Deep Clean,40000,10000,30000,Synthetic,Paid,Rio,True
+217,2025-12-10,Alif,Tas,Tas,90000,10000,80000,Synthetic,Paid,Rio,True
+218,2025-12-12,Uma,Converse Allstar,Deep Clean,40000,10000,30000,Synthetic,Paid,Rio,True
+219,2025-12-14,Tono,Aerostreet,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+220,2025-12-14,Qori,Skechers,Reparasi,50000,0,50000,Synthetic,Paid,Vian,True
+221,2025-12-15,Vino,Zara,Deep Clean,65000,0,65000,Synthetic,Paid,Vian,True
+222,2025-12-17,Uma,Nike,Deep Clean,40000,0,40000,Synthetic,Paid,Amory,True
+223,2025-12-19,Lisa,On Cloud,Deep Clean,40000,5000,35000,Synthetic,Paid,Rio,True
+224,2025-12-19,Imam,Converse High,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+225,2025-12-20,Mita,Hoka,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+226,2025-12-20,Xena,Aerostreet,Deep Clean,50000,5000,45000,Synthetic,Paid,Amory,True
+227,2025-12-22,Dina,Nike,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+228,2025-12-22,Hana,Onitsuka,Fast Clean,35000,5000,30000,Synthetic,Paid,Vian,True
+229,2025-12-24,Citra,Compass,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+230,2025-12-26,Lisa,Adidas,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+231,2025-12-28,Julia,Vans,Deep Clean,40000,0,40000,Synthetic,Paid,Rio,True
+232,2025-12-29,Vino,Nike,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+233,2025-12-31,Dina,Hoka,Deep Clean,65000,10000,55000,Synthetic,Paid,Rio,True
+234,2025-12-31,Oscar,Converse High,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+235,2025-12-31,Uma,Vans,Fast Clean,35000,0,35000,Synthetic,Paid,Rio,True
+236,2026-01-01,Chandra,On Cloud,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+237,2026-01-03,Julia,On Cloud,Deep Clean,60000,5000,55000,Synthetic,Paid,Rio,True
+238,2026-01-03,Citra,Reebok,Deep Clean,60000,0,60000,Synthetic,Paid,Rio,True
+239,2026-01-04,Fira,Asics,Deep Clean,65000,0,65000,Synthetic,Paid,Amory,True
+240,2026-01-05,Putri,Aerostreet,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+241,2026-01-08,Imam,Diadora,Deep Clean,60000,10000,50000,Synthetic,Paid,Amory,True
+242,2026-01-09,Joko,NB,Deep Clean,60000,5000,55000,Synthetic,Paid,Vian,True
+243,2026-01-10,Mario,Karpet,Karpet,40000,0,40000,Synthetic,Paid,Amory,True
+244,2026-01-14,Lukman,Nike,Deep Clean,45000,10000,35000,Synthetic,Paid,Rio,True
+245,2026-01-16,Putri,NB,Fast Clean,35000,5000,30000,Synthetic,Paid,Rio,True
+246,2026-01-16,Nando,Asics,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+247,2026-01-17,Wulan,Wakai,Deep Clean,50000,0,50000,Synthetic,Paid,Vian,True
+248,2026-01-17,Tono,NB,Deep Clean,50000,5000,45000,Synthetic,Paid,Amory,True
+249,2026-01-17,Julia,Aerostreet,Deep Clean,60000,5000,55000,Synthetic,Paid,Amory,True
+250,2026-01-18,Lukman,Skechers,Deep Clean,45000,0,45000,Synthetic,Paid,Vian,True
+251,2026-01-18,Vino,Reebok,Deep Clean,60000,5000,55000,Synthetic,Paid,Vian,True
+252,2026-01-19,Tono,Patrobas,Fast Clean,35000,10000,25000,Synthetic,Paid,Amory,True
+253,2026-01-22,Karin,Aerostreet,Deep Clean,65000,5000,60000,Synthetic,Paid,Rio,True
+254,2026-01-25,Erwin,Aerostreet,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+255,2026-02-02,Putri,Nike,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+256,2026-02-02,Lukman,Hoka,Deep Clean,60000,5000,55000,Synthetic,Paid,Amory,True
+257,2026-02-05,Xena,On Cloud,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+258,2026-02-06,Dina,Hoka,Fast Clean,35000,10000,25000,Synthetic,Paid,Rio,True
+259,2026-02-07,Lukman,Onitsuka,Deep Clean,40000,10000,30000,Synthetic,Paid,Vian,True
+260,2026-02-08,Lukman,Hoka,Deep Clean,40000,0,40000,Synthetic,Paid,Rio,True
+261,2026-02-08,Hana,Compass,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+262,2026-02-10,Xena,Tas,Tas,30000,5000,25000,Synthetic,Paid,Rio,True
+263,2026-02-10,Galih,Hoka,Deep Clean,40000,0,40000,Synthetic,Paid,Amory,True
+264,2026-02-10,Hana,Reebok,Deep Clean,65000,0,65000,Synthetic,Paid,Amory,True
+265,2026-02-10,Bella,Vans,Deep Clean,45000,10000,35000,Synthetic,Paid,Rio,True
+266,2026-02-10,Putri,UnderArmour,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+267,2026-02-12,Bella,Converse Allstar,Reparasi,40000,0,40000,Synthetic,Paid,Rio,True
+268,2026-02-15,Mita,Converse,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+269,2026-02-15,Uma,Wakai,Deep Clean,65000,10000,55000,Synthetic,Paid,Amory,True
+270,2026-02-17,Erwin,On Cloud,Deep Clean,40000,0,40000,Synthetic,Paid,Rio,True
+271,2026-02-19,Karin,Aerostreet,Deep Clean,45000,0,45000,Synthetic,Paid,Amory,True
+272,2026-02-21,Mita,Converse,Fast Clean,35000,0,35000,Synthetic,Paid,Vian,True
+273,2026-02-22,Mario,Zara,Deep Clean,50000,0,50000,Synthetic,Paid,Amory,True
+274,2026-02-23,Dewi,NB,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+275,2026-03-01,Dewi,Patrobas,Deep Clean,50000,0,50000,Synthetic,Paid,Rio,True
+276,2026-03-02,Budi,Warrior,Deep Clean,45000,5000,40000,Synthetic,Paid,Amory,True
+277,2026-03-02,Galih,Wakai,Deep Clean,40000,10000,30000,Synthetic,Paid,Amory,True
+278,2026-03-03,Alif,NB,Deep Clean,50000,10000,40000,Synthetic,Paid,Amory,True
+279,2026-03-09,Hesti,UnderArmour,Deep Clean,60000,10000,50000,Synthetic,Paid,Vian,True
+280,2026-03-09,Joko,Aerostreet,Deep Clean,65000,10000,55000,Synthetic,Paid,Vian,True
+281,2026-03-09,Oscar,Patrobas,Deep Clean,40000,0,40000,Synthetic,Paid,Amory,True
+282,2026-03-12,Karin,Zara,Deep Clean,60000,5000,55000,Synthetic,Paid,Vian,True
+283,2026-03-13,Uma,Vans,Deep Clean,45000,5000,40000,Synthetic,Paid,Rio,True
+284,2026-03-14,Wulan,Zara,Deep Clean,50000,10000,40000,Synthetic,Paid,Vian,True
+285,2026-03-17,Eko,Wakai,Deep Clean,45000,5000,40000,Synthetic,Paid,Amory,True
+286,2026-03-18,Eko,Asics,Deep Clean,40000,5000,35000,Synthetic,Paid,Rio,True
+287,2026-03-19,Vino,UnderArmour,Deep Clean,40000,0,40000,Synthetic,Paid,Vian,True
+288,2026-03-19,Lisa,Adidas,Deep Clean,45000,5000,40000,Synthetic,Paid,Rio,True
+289,2026-03-22,Reza,Compass,Fast Clean,35000,10000,25000,Synthetic,Paid,Rio,True
+290,2026-03-22,Hesti,Onitsuka,Deep Clean,60000,0,60000,Synthetic,Paid,Amory,True
+291,2026-03-27,Fajar,Onitsuka,Deep Clean,40000,10000,30000,Synthetic,Paid,Vian,True
+292,2026-03-28,Alif,Asics,Deep Clean,60000,0,60000,Synthetic,Paid,Vian,True
+293,2026-03-29,Qori,Converse,Fast Clean,35000,5000,30000,Synthetic,Paid,Vian,True
+294,2026-03-31,Alif,UnderArmour,Deep Clean,50000,5000,45000,Synthetic,Paid,Rio,True
+295,2026-04-01,Sari,NB,Deep Clean,65000,0,65000,Synthetic,Paid,Rio,True
+296,2026-04-03,Yogi,On Cloud,Deep Clean,45000,0,45000,Synthetic,Paid,Rio,True
+297,2026-04-06,Zara,Puma,Deep Clean,50000,5000,45000,Synthetic,Paid,Rio,True
+298,2026-04-06,Eko,On Cloud,Deep Clean,40000,0,40000,Synthetic,Paid,Amory,True
+299,2026-04-09,Bella,Vans,Fast Clean,35000,0,35000,Synthetic,Paid,Amory,True
+300,2026-04-13,Qori,Zara,Deep Clean,45000,5000,40000,Synthetic,Paid,Amory,True
