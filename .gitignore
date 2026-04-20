@@ -1,6 +1,32 @@
+# OS
 .DS_Store
+
+# Secrets & credentials
 .env
-*.duckdb
+profiles.yml
+
+# Data — raw (real business data, not for public repo)
 data/raw/
 data/exports/
+data/warehouse/
+
+# DuckDB files
+*.duckdb
+
+# Python
 venv/
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+
+# dbt artifacts
+miracle_solework_dbt/target/
+miracle_solework_dbt/logs/
+miracle_solework_dbt/dev.duckdb
+
+# Pipeline logs
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
