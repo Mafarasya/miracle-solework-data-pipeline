@@ -11,7 +11,7 @@ from datetime import datetime
 
 # Paths
 BASE_DIR = Path(__file__).parent.parent
-DB_PATH = BASE_DIR / "data" / "warehouse" / "sepokat.duckdb"
+DB_PATH = BASE_DIR / "data" / "warehouse" / "miracle_solework.duckdb"
 REAL_2023_PATH = BASE_DIR / "data" / "raw" / "sepokat_2023.csv"
 REAL_2025_PATH = BASE_DIR / "data" / "raw" / "sepokat_2025_2026.csv"
 REAL_EXPENSES_PATH_2023 = BASE_DIR / "data" / "raw" / "sepokat_spending_2023.csv"
@@ -34,11 +34,45 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
+MONTH_MAP_ID = {
+    "januari": 1,
+    "februari": 2,
+    "maret": 3,
+    "april": 4,
+    "mei": 5,
+    "juni": 6,
+    "juli": 7,
+    "agustus": 8,
+    "september": 9,
+    "oktober": 10,
+    "november": 11,
+    "desember": 12,
+}
 
+# Helpers
+def parse_indonesian_month(text):
+    if pd.isna(text):
+        return None
+
+    text = str(text).strip().lower()
+    return MONTH_MAP_ID.get(text)
+
+def impute_expense_date(row, default_year=2023, salary_day=25):
+    raw_date = pd.to_datetime(row.get("expense_date"), errors="coerce")
+    if pd.notna(raw_date):
+        return raw_date
+
+    brand = str(row.get("brand", "")).strip().lower()
+    month_num = parse_indonesian_month(row.get("notes"))
+
+    if brand == "gaji" and month_num:
+        return pd.Timestamp(year=default_year, month=month_num, day=salary_day)
+
+    return pd.NaT
 
 # Extract from excel
 def read_orders_csv(path: Path) -> pd.DataFrame:
-    return pd.read_csv(path, header=1)
+    return pd.read_csv(path)
 
 
 def read_expenses_csv(path: Path) -> pd.DataFrame:
@@ -67,7 +101,6 @@ def normalize_orders_real(df: pd.DataFrame, data_source: str) -> pd.DataFrame:
     }
     
     out = out.rename(columns=rename_map)
-    out["order_date"] = pd.to_datetime(out["order_date"], dayfirst=True, errors='coerce') 
 
     wanted_cols = [
         "order_no",
@@ -80,12 +113,12 @@ def normalize_orders_real(df: pd.DataFrame, data_source: str) -> pd.DataFrame:
         "total_price",
         "notes",
         "payment_status",
-        "worker",
-        "data_source",
-        "is_synthetic",
+        "worker"
     ]
 
-    out = out[[c for c in wanted_cols if c in out.columns]].copy()
+    out = out[wanted_cols].copy()
+
+    out["order_date"] = pd.to_datetime(out["order_date"], dayfirst=True, errors='coerce')
 
     out["data_source"] = data_source
     out["is_synthetic"] = False
@@ -128,12 +161,22 @@ def normalize_expenses_real(df: pd.DataFrame, data_source: str) -> pd.DataFrame:
     }
 
     out = out.rename(columns=rename_map)
-
     wanted_cols = [
         "expense_date", "item_name", "brand", "unit_price", "quantity", "total_price", "notes"
     ]
 
-    out = out[[c for c in wanted_cols if c in out.columns]].copy()
+    out = out[wanted_cols].copy()
+
+    # impute expense_date
+    raw_dates = pd.to_datetime(out["expense_date"], errors='coerce')
+    out["expense_date"] = out.apply(
+        impute_expense_date, axis=1
+    )
+
+    # Flag row that automatically imputed
+    out["is_date_imputed"] = (
+        raw_dates.isna() & out["expense_date"].notna()
+    )
 
     out["data_source"] = data_source
     out["is_synthetic"] = False

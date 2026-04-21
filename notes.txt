@@ -1,0 +1,51 @@
+📁 RAW DATA SOURCES
+├── Sepokat.xlsx          (real 2023 — orders + pengeluaran)
+└── Sepokat-Vian.xlsx     (real 2025–2026 — orders + pengeluaran)
+
+          ↓
+
+🧬 GENERATE SYNTHETIC (generate_synthetic.py)
+├── synthetic_orders.csv      ✅ done
+├── synthetic_supplies.csv    ✅ done
+└── ~~synthetic_salary.csv~~  ❌ dihapus → pindah ke dbt
+
+          ↓
+
+📥 INGEST (ingest_to_duckdb.py)
+├── load orders (real 2023 + real 2025–2026 + synthetic)  ✅ done
+└── load expenses/supplies (real 2023 + real 2025–2026 + synthetic)  ✅ done
+
+          ↓  DuckDB (sepokat.db)
+          
+┌─────────────────────────────┐
+│  raw_orders                 │
+│  raw_expenses_supplies      │✅ done
+└─────────────────────────────┘
+
+          ↓
+
+🛠️ DBT — STAGING
+├── stg_orders.sql          → clean, rename, derive worker_share & kas
+└── stg_expenses_supplies.sql → clean, kategorisasi item
+
+          ↓
+
+📊 DBT — MARTS
+├── fct_orders.sql              → grain: 1 row per order
+├── fct_monthly_revenue.sql     → revenue per bulan
+├── fct_monthly_expenses.sql    → total supplies per bulan
+├── fct_salary.sql              → derive dari stg_orders, gajian tiap tgl 25
+├── fct_profit.sql              → revenue - expenses - salary = net profit
+└── fct_worker_performance.sql  → orders & earnings per worker
+
+          ↓
+
+🔍 EDA (notebook / DuckDB query)
+└── Validasi angka, cek distribusi, cek anomali
+
+          ↓
+
+📋 LOOKER STUDIO DASHBOARD
+├── Revenue overview
+├── Worker capacity & performance
+└── Profit & expenses breakdown

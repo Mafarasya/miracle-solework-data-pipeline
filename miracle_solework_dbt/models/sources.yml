@@ -1,0 +1,11 @@
+version: 2
+sources:
+  - name: staging
+    database: miracle_solework
+    schema: main
+    tables:
+      - name: raw_orders
+        description: "Contains raw orders data from sepokat real data and synthetic data with basic normalization"
+      - name: raw_expenses
+        description: "Contains raw expenses data from sepokat real data and synthetic data with basic normalization"
+      
