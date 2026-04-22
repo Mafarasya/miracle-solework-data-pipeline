@@ -8,13 +8,12 @@ select
     YEAR(order_date) AS year,
     MONTH(order_date) AS month,
     DAY(order_date) AS week,
-    TRIM(
-    regexp_replace(
-      regexp_replace(customer_name, '^(?i)(ka|pak|mas|kang)\s+', ''),
-      '\s*\(.*\)',
-      ''
-    )
-  ) AS customer_name_clean,
+    CASE
+        WHEN nama = 'Kost no 12'  THEN 'Pelanggan Kost 12'
+        WHEN nama = 'Temen Putri' THEN 'Teman Putri'
+        WHEN regexp_matches(nama, '^(Ka|Kak|Mas|Ko|Pak|Bang|Mama)\s') THEN nama
+    ELSE nama
+    END AS customer_name_clean,
     CASE 
         WHEN notes LIKE 'BCA' THEN 'Transfer'
         WHEN notes IS NULL THEN 'Unknown'
@@ -39,7 +38,16 @@ select
         WHEN LOWER(shoe_type) IN ('gatau', '???', 'lokal') THEN 'Unknown'
         WHEN shoe_type IS NULL OR shoe_type = '' THEN 'Unknown'
         ELSE INITCAP(jenis_sepatu) -- make it capitalize as is
-    END AS shoe_brand_clean
+    END AS shoe_brand_clean,
+    CASE
+        WHEN discount < 0 THEN 'surcharge'
+        WHEN discount = 0 THEN 'none'
+        WHEN discount = 5000 THEN 'special'
+        WHEN discount = 8000 THEN 'promo'
+        WHEN discount = 10000 THEN 'loyalty'
+        WHEN discount > 10000 THEN 'manual'
+        ELSE 'unknown'
+    END as discount_type
     
 from 
     source
