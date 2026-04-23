@@ -1,7 +1,6 @@
 version: 2
 sources:
   - name: staging
-    database: miracle_solework
     schema: main
     tables:
       - name: raw_orders
