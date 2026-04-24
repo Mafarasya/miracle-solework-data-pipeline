@@ -57,6 +57,46 @@ def parse_indonesian_month(text):
     text = str(text).strip().lower()
     return MONTH_MAP_ID.get(text)
 
+
+def rp_to_int(value) -> int | None:
+    """Convert Indonesian Rupiah strings like 'Rp50.000' or 'Rp67.400,00' → int.
+    Returns None for NaN/unparseable values so NULLs stay explicit.
+    """
+    if pd.isna(value):
+        return None
+    if isinstance(value, (int, float)):
+        return int(value)
+    cleaned = re.sub(r"[Rp\s]", "", str(value))  # strip 'Rp' and whitespace
+    cleaned = cleaned.replace(".", "").replace(",", "")  # remove thousand-sep dots & decimal commas
+    # After stripping, the last 2 digits are decimals in ',00' format → already gone
+    # But if original had no decimal (e.g. 'Rp50.000') we already stripped the dot
+    try:
+        val = int(cleaned)
+        # If original had ',00' suffix the result is 100x too large — divide back
+        # Detect: original string contained a comma (cents separator)
+        if "," in str(value):
+            val = val // 100
+        return val
+    except ValueError:
+        return None
+
+
+def inspect_dataframe(df: pd.DataFrame, name: str) -> None:
+    """Print a diagnostic snapshot of a DataFrame before ingest."""
+    sep = "-" * 60
+    log.info(f"\n{sep}")
+    log.info(f"[INSPECT] {name}  shape={df.shape}")
+    log.info(f"{sep}")
+    log.info("dtypes:\n" + df.dtypes.to_string())
+    log.info("\nnull counts:\n" + df.isnull().sum().to_string())
+    log.info("\nsample (head 5):\n" + df.head(5).to_string(index=False))
+    # Highlight numeric price cols: show min/max/mean where applicable
+    price_cols = [c for c in df.columns if "price" in c or "harga" in c.lower()]
+    if price_cols:
+        log.info(f"\nprice col stats: {price_cols}")
+        log.info(df[price_cols].describe().to_string())
+    log.info(sep)
+
 def impute_expense_date(row, default_year=2023, salary_day=25):
     raw_date = pd.to_datetime(row.get("expense_date"), errors="coerce")
     if pd.notna(raw_date):
@@ -120,6 +160,10 @@ def normalize_orders_real(df: pd.DataFrame, data_source: str) -> pd.DataFrame:
 
     out["order_date"] = pd.to_datetime(out["order_date"], dayfirst=True, errors='coerce')
 
+    # Clean Rp-formatted price columns → plain integers
+    for col in ["price", "discount", "total_price"]:
+        out[col] = out[col].apply(rp_to_int)
+
     out["data_source"] = data_source
     out["is_synthetic"] = False
 
@@ -177,6 +221,11 @@ def normalize_expenses_real(df: pd.DataFrame, data_source: str) -> pd.DataFrame:
     out["is_date_imputed"] = (
         raw_dates.isna() & out["expense_date"].notna()
     )
+
+    # Clean Rp-formatted price columns → plain integers
+    for col in ["unit_price", "total_price"]:
+        out[col] = out[col].apply(rp_to_int)
+    out["quantity"] = pd.to_numeric(out["quantity"], errors="coerce")
 
     out["data_source"] = data_source
     out["is_synthetic"] = False
@@ -279,7 +328,8 @@ def write_expenses_table(con: duckdb.DuckDBPyConnection, df_expenses: pd.DataFra
             TRY_CAST(total_price AS INTEGER) AS total_price,
             notes,
             data_source,
-            CAST(is_synthetic AS BOOLEAN) AS is_synthetic
+            CAST(is_synthetic AS BOOLEAN) AS is_synthetic,
+            CAST(is_date_imputed AS BOOLEAN) AS is_date_imputed
         FROM df_expenses
         ORDER BY expense_date, item_name
     """)
@@ -343,7 +393,10 @@ def main():
         normalize_expenses_synth(synth_expenses, data_source="synthetic_supplies")
     ], ignore_index=True)
 
-    log.info("[4/6 Running Validations...]")
+    # ── Pre-ingest inspection ──────────────────────────────────────────
+    log.info("[4/6 Running Validations & Pre-ingest Inspection...]")
+    inspect_dataframe(df_orders, "df_orders (merged)")
+    inspect_dataframe(df_expenses, "df_expenses (merged)")
     validate_orders(df_orders)
     validate_expenses(df_expenses)
 
