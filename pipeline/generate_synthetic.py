@@ -26,9 +26,9 @@ JENIS_CUCI_DIST = {
 }
 
 HARGA_MAP = {
-    "Deep Clean": lambda: random.choice([40000, 45000, 50000, 60000, 65000]),
+    "Deep Clean": lambda: random.choice([50000, 60000, 65000]),
     "Fast Clean": lambda: 35000,
-    "Tas":        lambda: random.choice([30000, 80000, 90000]),
+    "Tas":        lambda: random.choice([30000, 70000, 80000]),
     "Reparasi":   lambda: random.choice([40000, 50000]),
     "Karpet":     lambda: random.choice([30000, 40000]),
 }
@@ -46,6 +46,7 @@ NAMA_POOL = [
     "Qori", "Reza", "Sari", "Tono", "Uma", "Vino", "Wulan", "Xena",
     "Yogi", "Zara", "Alif", "Bella", "Chandra", "Dina", "Erwin", "Fira",
     "Galih", "Hesti", "Imam", "Joko", "Karin", "Lukman", "Mita", "Nando",
+    "Rendy", "Rama", "Gede", "Nathan"
 ]
 
 # List expenses / supplies, with interval (how often these items are bought)
