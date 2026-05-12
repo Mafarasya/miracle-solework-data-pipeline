@@ -23,5 +23,3 @@ SELECT
     (COALESCE(total_revenue, 0) - COALESCE(total_expenses, 0)) AS daily_profit
 FROM daily_orders o
 FULL OUTER JOIN daily_expenses e ON o.order_date = e.expense_date
-    
--- coalesce is used to prevent nulls on either side, caused by agg SUM() function that returns null values when occured zero transaction on that day
