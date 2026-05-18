@@ -1,0 +1,196 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Cleaned and standardized order-level data from raw operational sources.
+    columns:
+      - name: order_id
+        description: Unique identifier for each order.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: order_date
+        description: Transaction date of the order.
+        data_tests:
+          - not_null
+
+      - name: customer_name_clean
+        description: Standardized customer name captured from the order record.
+        data_tests:
+          - not_null
+
+      - name: clean_type
+        description: Cleaning service category.
+        data_tests:
+          - not_null
+
+      - name: item_type
+        description: Type of item or shoe serviced.
+        data_tests:
+          - not_null
+
+      - name: total_price
+        description: Final amount charged for the order.
+        data_tests:
+          - not_null
+
+      - name: discount
+        description: Actual discount applied to the order.
+        data_tests:
+          - not_null
+
+      - name: expected_discount
+        description: Discount expected based on business rules.
+        data_tests:
+          - not_null
+
+      - name: discount_gap
+        description: Difference between expected discount and actual discount.
+        data_tests:
+          - not_null
+
+      - name: is_discount_missed
+        description: Flag indicating that a discount should have been applied but was missed.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+      
+      - name: is_free_service
+        description: Flag indicating the order was provided free of charge.
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]
+              quote: false
+
+      - name: data_source
+        description: Data source or period tag used to distinguish source batches.
+        data_tests:
+          - not_null
+
+      - name: is_synthetic
+        description: Flag indicating whether the row is synthetic or real.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_price >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "discount >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+          expression: "expected_discount >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+          expression: "discount_gap = expected_discount - discount"
+
+      - dbt_utils.expression_is_true:
+          expression: "case when is_free_service then expected_discount = 0 else true end"
+
+  - name: stg_expenses
+    description: Cleaned expense line-item data from raw expense records.
+    columns:
+      - name: expense_date
+        description: Date of the expense transaction.
+        data_tests:
+          - not_null
+
+      - name: month
+        description: Extracted month number from expense_date.
+        data_tests:
+          - not_null
+
+      - name: item_name
+        description: Name of the purchased item or expense component.
+        data_tests:
+          - not_null
+
+      - name: brand
+        description: Brand of the item, nullified when blank in the source.
+        data_tests: []
+
+      - name: unit_price
+        description: Price per unit.
+        data_tests:
+          - not_null
+
+      - name: quantity
+        description: Number of units purchased.
+        data_tests:
+          - not_null
+
+      - name: total_price
+        description: Total expense amount recorded in the source.
+        data_tests:
+          - not_null
+
+      - name: calculated_total_price
+        description: Recalculated total based on unit_price multiplied by quantity.
+        data_tests:
+          - not_null
+
+      - name: notes
+        description: Additional notes from the source, nullified when blank.
+        data_tests: []
+
+      - name: data_source
+        description: Data source or period tag used to distinguish source batches.
+        data_tests:
+          - not_null
+
+      - name: is_total_price_mismatch
+        description: Flag indicating a mismatch between recorded total_price and calculated_total_price.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+
+      - name: is_synthetic
+        description: Flag indicating whether the row is synthetic or real.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+
+      - name: is_date_imputed
+        description: Flag indicating whether the expense date was imputed.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+          expression: "unit_price >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+          expression: "quantity > 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+          expression: "total_price >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+          expression: "calculated_total_price >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+          expression: "month between 1 and 12"

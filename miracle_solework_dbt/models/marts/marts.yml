@@ -1,0 +1,349 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: Fact table containing order-level business-ready transactions.
+    columns:
+      - name: order_id
+        description: Unique identifier for each order.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: order_date
+        description: Order transaction date.
+        data_tests:
+          - not_null
+
+      - name: customer_name_clean
+        description: Standardized customer name.
+        data_tests:
+          - not_null
+
+      - name: total_price
+        description: Final order price.
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: Origin period or source tag.
+        data_tests:
+          - not_null
+
+      - name: is_synthetic
+        description: Synthetic record flag.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_price >= 0"
+
+  - name: fct_expenses
+    description: Fact table containing expense-level business-ready transactions.
+    columns:
+      - name: expense_date
+        description: Expense transaction date.
+        data_tests:
+          - not_null
+
+      - name: item_name
+        description: Item Name / Category.
+        data_tests:
+          - not_null
+
+      - name: total_price
+        description: Total Price of Expense.
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: Origin period or source tag.
+        data_tests:
+          - not_null
+
+      - name: is_synthetic
+        description: Synthetic record flag.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_price >= 0"
+
+  - name: fct_daily_finance
+    description: Daily finance summary across revenue, expenses, and profitability.
+    columns:
+      - name: date
+        description: Daily grain date.
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: Origin period or source tag.
+        data_tests:
+          - not_null
+
+      - name: is_synthetic
+        description: Synthetic record flag.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+
+      - name: total_orders
+        description: Daily number of orders.
+        data_tests:
+          - not_null
+
+      - name: total_revenue
+        description: Daily revenue.
+        data_tests:
+          - not_null
+
+      - name: total_expenses
+        description: Daily expense.
+        data_tests:
+          - not_null
+
+      - name: daily_profit
+        description: Daily net profit.
+        data_tests:
+          - not_null
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date
+            - data_source
+            - is_synthetic
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_revenue >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_expenses >= 0"
+
+  - name: mart_customer_summary
+    description: Real customer-level summary from order data. Excludes synthetic records. Loyalty tier based on total orders >= 5 or total revenue >= 300000.
+    columns:
+      - name: customer_name
+        description: Customer grain key.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: total_orders
+        description: Total customer orders.
+        data_tests:
+          - not_null
+
+      - name: total_revenue
+        description: Total customer spend.
+        data_tests:
+          - not_null
+
+      - name: loyalty_tier
+        description: Customer loyalty bucket.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['regular', 'loyal']
+
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_orders >= 1"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_revenue >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_discount_actual >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_discount_expected >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_missed_discount_count >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "last_order_date >= first_order_date"
+
+  - name: mart_customer_summary_active
+    description: Customer summary for active customers only.
+    columns:
+      - name: customer_name
+        description: Customer grain key.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: total_orders
+        description: Total customer orders.
+        data_tests:
+          - not_null
+
+      - name: total_revenue
+        description: Total customer revenue.
+        data_tests:
+          - not_null
+
+      - name: loyalty_tier
+        description: Customer loyalty bucket.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['regular', 'loyal']
+
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_orders >= 1"
+
+  - name: mart_customer_summary_sim
+    description: Customer summary split for synthetic and source-aware analysis.
+    columns:
+      - name: customer_name
+        description: Customer grain key.
+        data_tests:
+          - not_null
+
+      - name: total_orders
+        description: Total customer orders.
+        data_tests:
+          - not_null
+
+      - name: total_revenue
+        description: Total customer revenue.
+        data_tests:
+          - not_null
+
+      - name: loyalty_tier
+        description: Customer loyalty bucket.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['regular', 'loyal']
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - customer_name
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_orders >= 1"
+
+  - name: mart_product_performance
+    description: Aggregated product and service performance by clean type, item type, source, and synthetic flag.
+    columns:
+      - name: clean_type
+        description: Cleaning service category.
+        data_tests:
+          - not_null
+
+      - name: item_type
+        description: Item or shoe category serviced.
+        data_tests:
+          - not_null
+
+      - name: total_orders
+        description: Number of orders in the aggregate grain.
+        data_tests:
+          - not_null
+
+      - name: total_revenue
+        description: Revenue in the aggregate grain.
+        data_tests:
+          - not_null
+
+      - name: avg_order_value
+        description: Average order value in the aggregate grain.
+        data_tests:
+          - not_null
+
+      - name: total_discount_actual
+        description: Sum of applied discount.
+        data_tests:
+          - not_null
+
+      - name: total_discount_expected
+        description: Sum of expected discount.
+        data_tests:
+          - not_null
+
+      - name: total_discount_gap
+        description: Sum of discount gap.
+        data_tests:
+          - not_null
+
+      - name: total_missed_discount_count
+        description: Count of orders with missed discount.
+        data_tests:
+          - not_null
+
+      - name: unique_customers
+        description: Distinct customers in the aggregate grain.
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: Origin period or source tag.
+        data_tests:
+          - not_null
+
+      - name: is_synthetic
+        description: Synthetic record flag.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - clean_type
+            - item_type
+            - data_source
+            - is_synthetic
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_orders >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_revenue >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "avg_order_value >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "unique_customers >= 0"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "total_missed_discount_count >= 0"

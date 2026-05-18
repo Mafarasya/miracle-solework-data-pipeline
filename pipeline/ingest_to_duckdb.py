@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).parent.parent
 DB_PATH = BASE_DIR / "data" / "warehouse" / "miracle_solework.duckdb"
 REAL_2023_PATH = BASE_DIR / "data" / "raw" / "sepokat_2023.csv"
 REAL_2025_PATH = BASE_DIR / "data" / "raw" / "sepokat_2025_2026.csv"
-REAL_EXPENSES_PATH_2023 = BASE_DIR / "data" / "raw" / "sepokat_spending_2023_updates.csv"
+REAL_EXPENSES_PATH_2023 = BASE_DIR / "data" / "raw" / "sepokat_spending_2023.csv"
 REAL_EXPENSES_PATH_2025 = BASE_DIR / "data" / "raw" / "sepokat_spending_2025_2026.csv"
 SYNTH_ORDERS_PATH = BASE_DIR / "data" / "synthetic" / "synthetic_orders.csv"
 SYNTH_SUPPLIES_PATH = BASE_DIR / "data" / "synthetic" / "synthetic_supplies.csv"
@@ -97,18 +97,25 @@ def inspect_dataframe(df: pd.DataFrame, name: str) -> None:
         log.info(df[price_cols].describe().to_string())
     log.info(sep)
 
-def impute_expense_date(row, default_year=2023, salary_day=25):
-    raw_date = pd.to_datetime(row.get("expense_date"), errors="coerce")
-    if pd.notna(raw_date):
-        return raw_date
+# def impute_expense_date(row, default_year=2023, salary_day=25):
+#     raw_date = pd.to_datetime(row.get("expense_date"), errors="coerce")
+#     if pd.notna(raw_date):
+#         return raw_date
 
-    brand = str(row.get("brand", "")).strip().lower()
-    month_num = parse_indonesian_month(row.get("notes"))
+#     brand = str(row.get("brand", "")).strip().lower()
+#     month_num = parse_indonesian_month(row.get("notes"))
 
-    if brand == "gaji" and month_num:
-        return pd.Timestamp(year=default_year, month=month_num, day=salary_day)
+#     if brand == "gaji" and month_num:
+#         return pd.Timestamp(year=default_year, month=month_num, day=salary_day)
 
-    return pd.NaT
+#     return pd.NaT
+
+def is_month(value) -> bool:
+    if pd.isna(value):
+        return False
+    return str(value).strip().lower() in MONTH_MAP_ID
+    
+
 
 # Extract from excel
 def read_orders_csv(path: Path) -> pd.DataFrame:
@@ -191,7 +198,7 @@ def normalize_orders_synth(df: pd.DataFrame, data_source: str = "synthetic_order
     out["is_synthetic"] = True
     return out
 
-def normalize_expenses_real(df: pd.DataFrame, data_source: str) -> pd.DataFrame:
+def normalize_expenses_real(df: pd.DataFrame, data_source: str, year: int) -> pd.DataFrame:
     out = df.copy()
 
     rename_map = {
@@ -205,31 +212,89 @@ def normalize_expenses_real(df: pd.DataFrame, data_source: str) -> pd.DataFrame:
     }
 
     out = out.rename(columns=rename_map)
-    wanted_cols = [
-        "expense_date", "item_name", "brand", "unit_price", "quantity", "total_price", "notes"
-    ]
 
+    wanted_cols = [
+        "expense_date",
+        "item_name",
+        "brand",
+        "unit_price",
+        "quantity",
+        "total_price",
+        "notes",
+    ]
     out = out[wanted_cols].copy()
 
-    # impute expense_date
-    raw_dates = pd.to_datetime(out["expense_date"], errors='coerce')
-    out["expense_date"] = out.apply(
-        impute_expense_date, axis=1
-    )
+    # Parse raw date first
+    raw_dates = pd.to_datetime(out["expense_date"], errors="coerce")
 
-    # Flag row that automatically imputed
-    out["is_date_imputed"] = (
-        raw_dates.isna() & out["expense_date"].notna()
-    )
+  
+    return out
 
-    # Clean Rp-formatted price columns → plain integers
+def normalize_expenses_real(df: pd.DataFrame, data_source: str, year: int) -> pd.DataFrame:
+    out = df.copy()
+
+    rename_map = {
+        "Tanggal": "expense_date",
+        "Nama Barang": "item_name",
+        "Merk": "brand",
+        "Harga": "unit_price",
+        "Jumlah": "quantity",
+        "Total Harga": "total_price",
+        "Keterangan": "notes",
+    }
+
+    out = out.rename(columns=rename_map)
+
+    wanted_cols = [
+        "expense_date",
+        "item_name",
+        "brand",
+        "unit_price",
+        "quantity",
+        "total_price",
+        "notes",
+    ]
+    out = out[wanted_cols].copy()
+
+    # Parse raw date first
+    raw_dates = pd.to_datetime(out["expense_date"], errors="coerce")
+
+    # Backward scan:
+    # every row inherits month from the next salary row below it
+    next_month = None
+    month_filled = [None] * len(out)
+
+    for i in range(len(out) - 1, -1, -1):
+        brand = str(out.iloc[i]["brand"]).strip().lower()
+        notes = out.iloc[i]["notes"]
+
+        if brand == "gaji" and is_month(notes):
+            next_month = MONTH_MAP_ID[str(notes).strip().lower()]
+
+        month_filled[i] = next_month
+
+    # Final expense_date:
+    out["expense_date"] = [
+        raw_dates.iloc[i]
+        if pd.notna(raw_dates.iloc[i])
+        else pd.Timestamp(year=year, month=month_num, day=25)
+        if month_num
+        else pd.NaT
+        for i, month_num in enumerate(month_filled)
+    ]
+
+    out["is_date_imputed"] = raw_dates.isna() & out["expense_date"].notna()
+
+    # Clean numeric columns
     for col in ["unit_price", "total_price"]:
         out[col] = out[col].apply(rp_to_int)
+
     out["quantity"] = pd.to_numeric(out["quantity"], errors="coerce")
 
     out["data_source"] = data_source
     out["is_synthetic"] = False
-    return out
+
+    return out 
 
 def normalize_expenses_synth(df: pd.DataFrame, data_source: str = "synthetic_supplies") -> pd.DataFrame:
     out = df.copy()
@@ -388,8 +453,8 @@ def main():
     log.info("[3/6 Normalizing expenses...]")
     # Merge between real & synthetic data
     df_expenses = pd.concat([
-        normalize_expenses_real(expenses_2023, data_source="real_2023"),
-        normalize_expenses_real(expenses_2025, data_source="real_2025"),
+        normalize_expenses_real(expenses_2023, data_source="real_2023", year=2023),
+        normalize_expenses_real(expenses_2025, data_source="real_2025", year=2025),
         normalize_expenses_synth(synth_expenses, data_source="synthetic_supplies")
     ], ignore_index=True)
 
@@ -415,201 +480,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# # ── Helpers ───────────────────────────────────────────────────────────────────
-
-# def rp_to_int(value) -> int:
-#     """Convert 'Rp50.000' or 'Rp-20.000' or already-int values → integer."""
-#     if pd.isna(value):
-#         return 0
-#     if isinstance(value, (int, float)):
-#         return int(value)
-#     cleaned = re.sub(r"[Rp\.\,\s]", "", str(value)).replace("-", "")
-#     try:
-#         return int(cleaned)
-#     except ValueError:
-#         return 0
-
-
-# def load_real_csv(path: str, source_name: str) -> pd.DataFrame:
-#     """
-#     Load a real sepokat CSV:
-#       - Row 0 is a merged section header → skip it (actual headers are in row 1)
-#       - Keep only columns up to and including 'Kang Cuci'
-#       - Apply all cleaning & type fixes
-#     """
-#     if not os.path.exists(path):
-#         raise FileNotFoundError(f"Source file not found: {path}")
-#     df = pd.read_csv(path, header=1)
-
-#     # Drop everything after (and including the column after) 'Kang Cuci'
-#     cols = list(df.columns)
-#     if "Kang Cuci" not in cols:
-#         raise ValueError(f"'Kang Cuci' column not found in {path}")
-#     kc_idx = cols.index("Kang Cuci")
-#     df = df.iloc[:, : kc_idx + 1].copy()
-
-#     # Drop rows where both No AND Nama are null (section header rows)
-#     df = df[pd.to_numeric(df["No"], errors="coerce").notna()]
-
-#     # Rename columns
-#     df = df.rename(columns=COLUMN_MAP)
-
-#     # Parse order_date (format: DD/MM/YYYY in real CSVs)
-#     df["order_date"] = pd.to_datetime(df["order_date"], dayfirst=True, errors="coerce")
-
-#     # Drop rows where date is null
-#     df = df.dropna(subset=["order_date"])
-
-#     # Parse price columns from Rp format → integer
-#     for col in ["price", "discount", "total_price"]:
-#         df[col] = df[col].apply(rp_to_int)
-
-#     # Ensure order_no is integer
-#     df["order_no"] = pd.to_numeric(df["order_no"], errors="coerce").astype("Int64")
-
-#     # Add metadata columns
-#     df["data_source"]  = source_name
-#     df["is_synthetic"] = False
-
-#     return df
-
-
-# def load_synthetic_csv(path: str) -> pd.DataFrame:
-#     """
-#     Load the synthetic CSV — already clean with integer prices.
-#     """
-#     if not os.path.exists(path):
-#         raise FileNotFoundError(f"Source file not found: {path}")
-
-#     df = pd.read_csv(path)
-
-#     # Rename columns
-#     df = df.rename(columns=COLUMN_MAP)
-
-#     # Parse order_date (format: YYYY-MM-DD from synthetic generator)
-#     df["order_date"] = pd.to_datetime(df["order_date"], errors="coerce")
-
-#     # Drop rows where date is null
-#     df = df.dropna(subset=["order_date"])
-
-#     # Prices are already integers — ensure correct type
-#     for col in ["price", "discount", "total_price"]:
-#         df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0).astype(int)
-
-#     # Ensure order_no is integer
-#     df["order_no"] = pd.to_numeric(df["order_no"], errors="coerce").astype("Int64")
-
-#     # Add metadata columns
-#     df["data_source"]  = "synthetic"
-#     df["is_synthetic"] = True
-
-#     return df
-
-
-# def enforce_schema(df: pd.DataFrame) -> pd.DataFrame:
-#     """Ensure consistent column order and types across all sources."""
-#     FINAL_COLS = [
-#         "order_no",
-#         "order_date",
-#         "customer_name",
-#         "shoe_type",
-#         "service_type",
-#         "price",
-#         "discount",
-#         "total_price",
-#         "notes",
-#         "payment_status",
-#         "worker",
-#         "data_source",
-#         "is_synthetic",
-#     ]
-#     # Keep only expected columns (drop any extras like raw 'is_synthetic' from CSV)
-#     for col in FINAL_COLS:
-#         if col not in df.columns:
-#             df[col] = None
-#     return df[FINAL_COLS]
-
-
-# # ── Main ──────────────────────────────────────────────────────────────────────
-
-# def main():
-#     log.info("=" * 55)
-#     log.info("  ingest_to_duckdb — Sepokat Data Pipeline")
-#     log.info("=" * 55)
-
-#     # --- Load all sources ---
-#     log.info("\n[1/4] Loading source files...")
-
-#     df_2023 = load_real_csv(CSV_2023, "sepokat_2023")
-#     log.info(f"      sepokat_2023      → {len(df_2023):>4} rows")
-
-#     df_2025 = load_real_csv(CSV_2025_2026, "sepokat_2025_2026")
-#     log.info(f"      sepokat_2025_2026 → {len(df_2025):>4} rows")
-
-#     df_syn = load_synthetic_csv(CSV_SYNTHETIC)
-#     log.info(f"      synthetic         → {len(df_syn):>4} rows")
-
-#     # --- Combine ---
-#     log.info("\n[2/4] Combining and enforcing schema...")
-#     df_all = pd.concat([df_2023, df_2025, df_syn], ignore_index=True)
-#     df_all = enforce_schema(df_all)
-#     log.info(f"      Total rows: {len(df_all)}")
-#     log.info(f"      Date range: {df_all['order_date'].min().date()} → {df_all['order_date'].max().date()}")
-
-#     # --- Write to DuckDB ---
-#     log.info(f"\n[3/4] Writing to DuckDB → {DB_PATH}")
-#     con = duckdb.connect(DB_PATH)
-
-#     # Drop and recreate the orders table for idempotent runs
-#     con.execute("DROP TABLE IF EXISTS orders")
-#     con.execute("""
-#         CREATE TABLE orders AS
-#         SELECT
-#             order_no,
-#             order_date::DATE          AS order_date,
-#             customer_name,
-#             shoe_type,
-#             service_type,
-#             price::INTEGER            AS price,
-#             discount::INTEGER         AS discount,
-#             total_price::INTEGER      AS total_price,
-#             notes,
-#             payment_status,
-#             worker,
-#             data_source,
-#             is_synthetic::BOOLEAN     AS is_synthetic
-#         FROM df_all
-#         ORDER BY order_date, order_no
-#     """)
-
-#     # --- Verify ---
-#     log.info("\n[4/4] Verification:")
-#     result = con.execute("""
-#         SELECT
-#             data_source,
-#             COUNT(*)              AS row_count,
-#             MIN(order_date)       AS earliest,
-#             MAX(order_date)       AS latest,
-#             AVG(total_price)      AS avg_total_price
-#         FROM orders
-#         GROUP BY data_source
-#         ORDER BY data_source
-#     """).fetchdf()
-#     log.info(result.to_string(index=False))
-
-#     log.info("\n  Schema:")
-#     schema = con.execute("DESCRIBE orders").fetchdf()
-#     log.info(schema[["column_name", "column_type"]].to_string(index=False))
-
-#     con.close()
-#     log.info(f"\n✅ Done! Table 'orders' loaded into {DB_PATH}")
-
-
-# if __name__ == "__main__":
-#     try:
-#         main()
-#     except Exception as e:
-#         log.error(f"Pipeline Failed :( ): {e}", exc_info=True)
-#         raise

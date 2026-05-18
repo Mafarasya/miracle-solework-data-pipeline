@@ -25,3 +25,10 @@ SELECT
     is_synthetic
 FROM
     {{ ref('stg_orders')}}
+
+
+    SELECT *
+FROM {{ ref('stg_orders') }}
+WHERE discount IS NULL
+   OR total_price IS NULL
+   OR discount > total_price
