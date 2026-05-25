@@ -142,7 +142,6 @@ models:
         description: Customer grain key.
         data_tests:
           - not_null
-          - unique
 
       - name: total_orders
         description: Total customer orders.
@@ -194,7 +193,6 @@ models:
         description: Customer grain key.
         data_tests:
           - not_null
-          - unique
 
       - name: total_orders
         description: Total customer orders.
@@ -249,6 +247,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - customer_name
+            - data_source
 
       - dbt_utils.expression_is_true:
           arguments:

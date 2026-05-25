@@ -7,4 +7,20 @@ sources:
         description: "Contains raw orders data from sepokat real data and synthetic data with basic normalization"
       - name: raw_expenses
         description: "Contains raw expenses data from sepokat real data and synthetic data with basic normalization"
-      
+  - name: marts
+    schema: main
+    tables:
+      - name: fct_orders
+        description: "Contains the final orders data with all the required columns."
+      - name: fct_expenses
+        description: "Contains the final expenses data with all the required columns."
+      - name: mart_customer_summary
+        description: "Contains the final customer summary data with all the required columns."
+      - name: mart_customer_summary_active
+        description: "Contains the final active customer summary data with all the required columns."
+      - name: mart_customer_summary_sim
+        description: "Contains the final simulated customer summary data with all the required columns."
+      - name: mart_product_performance
+        description: "Contains the final product performance data with all the required columns."
+      - name: fct_daily_finance
+        description: "Contains the final daily finance data with all the required columns."

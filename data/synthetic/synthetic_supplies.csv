@@ -1,64 +1,144 @@
 Tanggal,Nama Barang,Merk,Harga,Jumlah,Total Harga,Keterangan,is_synthetic
-2025-01-02,Silica Gel,General,16650,1,16650,,True
-2025-01-04,Spons,Apen,13772,1,13772,,True
-2025-01-04,Leather Balm,Simplycist,31804,1,31804,,True
-2025-01-05,Insole Brush,HYPOSPOT,20962,1,20962,,True
-2025-01-06,Parfume Sepatu,Bowin,15400,2,30800,,True
-2025-01-06,Plastik Sepatu,No name,85000,1,85000,,True
-2025-01-08,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
-2025-01-08,Microfiber,Olaf,32500,3,97500,,True
-2025-01-11,Eraser Suede,Undersole,37000,1,37000,,True
-2025-02-07,Plastik Sepatu,No name,85000,1,85000,,True
-2025-03-03,Silica Gel,General,16650,1,16650,,True
-2025-03-06,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
-2025-03-06,Plastik Sepatu,No name,85000,1,85000,,True
-2025-03-08,Spons,Apen,13772,1,13772,,True
-2025-04-04,Microfiber,Olaf,32500,3,97500,,True
-2025-04-11,Parfume Sepatu,Bowin,15400,2,30800,,True
+2025-01-01,Insole Brush,HYPOSPOT,20962,1,20962,,True
+2025-01-03,Eraser Suede,Undersole,37000,1,37000,,True
+2025-01-04,Parfume Sepatu,Bowin,15400,2,30800,,True
+2025-01-05,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
+2025-01-05,Leather Balm,Simplycist,31804,1,31804,,True
+2025-01-05,Silica Gel,General,16650,1,16650,,True
+2025-01-06,Spons,Apen,13772,1,13772,,True
+2025-01-07,Microfiber,Olaf,32500,3,97500,,True
+2025-01-11,Plastik Sepatu,No name,85000,1,85000,,True
+2025-01-25,Amory,Gaji,30000,2,60000,Gaji January 2025 - Deep Clean,True
+2025-01-25,Amory,Gaji,25000,1,25000,Gaji January 2025 - Tas,True
+2025-01-25,Rio,Gaji,30000,5,150000,Gaji January 2025 - Deep Clean,True
+2025-01-25,Rio,Gaji,25000,1,25000,Gaji January 2025 - Tas,True
+2025-01-25,Vian,Gaji,30000,3,90000,Gaji January 2025 - Deep Clean,True
+2025-01-25,Vian,Gaji,25000,1,25000,Gaji January 2025 - Tas,True
+2025-02-09,Plastik Sepatu,No name,85000,1,85000,,True
+2025-02-25,Amory,Gaji,30000,4,120000,Gaji February 2025 - Deep Clean,True
+2025-02-25,Amory,Gaji,20000,1,20000,Gaji February 2025 - Fast Clean,True
+2025-02-25,Amory,Gaji,25000,1,25000,Gaji February 2025 - Tas,True
+2025-02-25,Rio,Gaji,30000,6,180000,Gaji February 2025 - Deep Clean,True
+2025-02-25,Rio,Gaji,20000,1,20000,Gaji February 2025 - Fast Clean,True
+2025-02-25,Rio,Gaji,25000,2,50000,Gaji February 2025 - Tas,True
+2025-02-25,Vian,Gaji,30000,7,210000,Gaji February 2025 - Deep Clean,True
+2025-03-03,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
+2025-03-04,Plastik Sepatu,No name,85000,1,85000,,True
+2025-03-05,Spons,Apen,13772,1,13772,,True
+2025-03-06,Silica Gel,General,16650,1,16650,,True
+2025-03-25,Amory,Gaji,30000,6,180000,Gaji March 2025 - Deep Clean,True
+2025-03-25,Amory,Gaji,20000,1,20000,Gaji March 2025 - Fast Clean,True
+2025-03-25,Rio,Gaji,30000,5,150000,Gaji March 2025 - Deep Clean,True
+2025-03-25,Rio,Gaji,25000,1,25000,Gaji March 2025 - Tas,True
+2025-03-25,Vian,Gaji,30000,2,60000,Gaji March 2025 - Deep Clean,True
+2025-04-09,Parfume Sepatu,Bowin,15400,2,30800,,True
+2025-04-11,Microfiber,Olaf,32500,3,97500,,True
 2025-04-11,Plastik Sepatu,No name,85000,1,85000,,True
-2025-05-01,Spons,Apen,13772,1,13772,,True
-2025-05-02,Silica Gel,General,16650,1,16650,,True
-2025-05-02,Leather Balm,Simplycist,31804,1,31804,,True
-2025-05-03,Eraser Suede,Undersole,37000,1,37000,,True
-2025-05-05,Plastik Sepatu,No name,85000,1,85000,,True
-2025-05-06,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
-2025-06-04,Plastik Sepatu,No name,85000,1,85000,,True
+2025-04-25,Amory,Gaji,30000,6,180000,Gaji April 2025 - Deep Clean,True
+2025-04-25,Amory,Gaji,15000,1,15000,Gaji April 2025 - Karpet,True
+2025-04-25,Rio,Gaji,30000,7,210000,Gaji April 2025 - Deep Clean,True
+2025-04-25,Vian,Gaji,30000,6,180000,Gaji April 2025 - Deep Clean,True
+2025-04-25,Vian,Gaji,15000,1,15000,Gaji April 2025 - Karpet,True
+2025-05-02,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
+2025-05-04,Plastik Sepatu,No name,85000,1,85000,,True
+2025-05-05,Eraser Suede,Undersole,37000,1,37000,,True
+2025-05-05,Silica Gel,General,16650,1,16650,,True
+2025-05-08,Spons,Apen,13772,1,13772,,True
+2025-05-10,Leather Balm,Simplycist,31804,1,31804,,True
+2025-05-25,Amory,Gaji,30000,5,150000,Gaji May 2025 - Deep Clean,True
+2025-05-25,Rio,Gaji,30000,5,150000,Gaji May 2025 - Deep Clean,True
+2025-05-25,Rio,Gaji,15000,1,15000,Gaji May 2025 - Karpet,True
+2025-05-25,Rio,Gaji,25000,1,25000,Gaji May 2025 - Tas,True
+2025-05-25,Vian,Gaji,30000,5,150000,Gaji May 2025 - Deep Clean,True
+2025-05-25,Vian,Gaji,20000,1,20000,Gaji May 2025 - Fast Clean,True
+2025-06-01,Plastik Sepatu,No name,85000,1,85000,,True
+2025-06-25,Amory,Gaji,30000,3,90000,Gaji June 2025 - Deep Clean,True
+2025-06-25,Rio,Gaji,30000,2,60000,Gaji June 2025 - Deep Clean,True
+2025-06-25,Vian,Gaji,30000,7,210000,Gaji June 2025 - Deep Clean,True
+2025-06-25,Vian,Gaji,25000,1,25000,Gaji June 2025 - Tas,True
+2025-07-01,Parfume Sepatu,Bowin,15400,2,30800,,True
 2025-07-02,Plastik Sepatu,No name,85000,1,85000,,True
-2025-07-05,Insole Brush,HYPOSPOT,20962,1,20962,,True
-2025-07-06,Spons,Apen,13772,1,13772,,True
-2025-07-06,Parfume Sepatu,Bowin,15400,2,30800,,True
-2025-07-08,Silica Gel,General,16650,1,16650,,True
-2025-07-08,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
-2025-07-10,Microfiber,Olaf,32500,3,97500,,True
-2025-08-01,Plastik Sepatu,No name,85000,1,85000,,True
-2025-09-02,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
-2025-09-03,Plastik Sepatu,No name,85000,1,85000,,True
-2025-09-03,Silica Gel,General,16650,1,16650,,True
-2025-09-04,Leather Balm,Simplycist,31804,1,31804,,True
-2025-09-06,Eraser Suede,Undersole,37000,1,37000,,True
+2025-07-07,Insole Brush,HYPOSPOT,20962,1,20962,,True
+2025-07-08,Microfiber,Olaf,32500,3,97500,,True
+2025-07-10,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
+2025-07-11,Silica Gel,General,16650,1,16650,,True
+2025-07-11,Spons,Apen,13772,1,13772,,True
+2025-07-25,Amory,Gaji,30000,3,90000,Gaji July 2025 - Deep Clean,True
+2025-07-25,Rio,Gaji,30000,8,240000,Gaji July 2025 - Deep Clean,True
+2025-07-25,Rio,Gaji,15000,1,15000,Gaji July 2025 - Karpet,True
+2025-07-25,Vian,Gaji,30000,5,150000,Gaji July 2025 - Deep Clean,True
+2025-08-07,Plastik Sepatu,No name,85000,1,85000,,True
+2025-08-25,Amory,Gaji,30000,8,240000,Gaji August 2025 - Deep Clean,True
+2025-08-25,Amory,Gaji,20000,1,20000,Gaji August 2025 - Fast Clean,True
+2025-08-25,Rio,Gaji,30000,6,180000,Gaji August 2025 - Deep Clean,True
+2025-08-25,Rio,Gaji,20000,2,40000,Gaji August 2025 - Fast Clean,True
+2025-08-25,Vian,Gaji,30000,8,240000,Gaji August 2025 - Deep Clean,True
+2025-09-01,Eraser Suede,Undersole,37000,1,37000,,True
+2025-09-01,Silica Gel,General,16650,1,16650,,True
+2025-09-06,Plastik Sepatu,No name,85000,1,85000,,True
 2025-09-09,Spons,Apen,13772,1,13772,,True
-2025-10-02,Parfume Sepatu,Bowin,15400,2,30800,,True
-2025-10-05,Microfiber,Olaf,32500,3,97500,,True
+2025-09-10,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
+2025-09-10,Leather Balm,Simplycist,31804,1,31804,,True
+2025-09-25,Amory,Gaji,30000,9,270000,Gaji September 2025 - Deep Clean,True
+2025-09-25,Rio,Gaji,30000,3,90000,Gaji September 2025 - Deep Clean,True
+2025-09-25,Vian,Gaji,30000,5,150000,Gaji September 2025 - Deep Clean,True
+2025-09-25,Vian,Gaji,15000,1,15000,Gaji September 2025 - Karpet,True
+2025-09-25,Vian,Gaji,25000,1,25000,Gaji September 2025 - Tas,True
+2025-10-03,Parfume Sepatu,Bowin,15400,2,30800,,True
+2025-10-08,Microfiber,Olaf,32500,3,97500,,True
 2025-10-08,Plastik Sepatu,No name,85000,1,85000,,True
-2025-11-08,Silica Gel,General,16650,1,16650,,True
-2025-11-09,Plastik Sepatu,No name,85000,1,85000,,True
-2025-11-10,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
-2025-11-10,Spons,Apen,13772,1,13772,,True
-2025-12-07,Plastik Sepatu,No name,85000,1,85000,,True
-2026-01-02,Silica Gel,General,16650,1,16650,,True
-2026-01-03,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
-2026-01-03,Leather Balm,Simplycist,31804,1,31804,,True
-2026-01-03,Insole Brush,HYPOSPOT,20962,1,20962,,True
-2026-01-06,Spons,Apen,13772,1,13772,,True
-2026-01-08,Microfiber,Olaf,32500,3,97500,,True
-2026-01-09,Parfume Sepatu,Bowin,15400,2,30800,,True
-2026-01-09,Eraser Suede,Undersole,37000,1,37000,,True
-2026-01-09,Plastik Sepatu,No name,85000,1,85000,,True
-2026-02-02,Plastik Sepatu,No name,85000,1,85000,,True
-2026-03-05,Plastik Sepatu,No name,85000,1,85000,,True
-2026-03-08,Spons,Apen,13772,1,13772,,True
-2026-03-09,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
-2026-03-11,Silica Gel,General,16650,1,16650,,True
+2025-10-25,Amory,Gaji,30000,8,240000,Gaji October 2025 - Deep Clean,True
+2025-10-25,Amory,Gaji,25000,2,50000,Gaji October 2025 - Tas,True
+2025-10-25,Rio,Gaji,30000,6,180000,Gaji October 2025 - Deep Clean,True
+2025-10-25,Vian,Gaji,30000,4,120000,Gaji October 2025 - Deep Clean,True
+2025-11-02,Plastik Sepatu,No name,85000,1,85000,,True
+2025-11-02,Silica Gel,General,16650,1,16650,,True
+2025-11-04,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
+2025-11-09,Spons,Apen,13772,1,13772,,True
+2025-11-25,Amory,Gaji,30000,5,150000,Gaji November 2025 - Deep Clean,True
+2025-11-25,Amory,Gaji,25000,1,25000,Gaji November 2025 - Reparasi,True
+2025-11-25,Rio,Gaji,30000,13,390000,Gaji November 2025 - Deep Clean,True
+2025-11-25,Rio,Gaji,20000,1,20000,Gaji November 2025 - Fast Clean,True
+2025-11-25,Vian,Gaji,30000,5,150000,Gaji November 2025 - Deep Clean,True
+2025-11-25,Vian,Gaji,25000,1,25000,Gaji November 2025 - Tas,True
+2025-12-11,Plastik Sepatu,No name,85000,1,85000,,True
+2025-12-25,Amory,Gaji,30000,3,90000,Gaji December 2025 - Deep Clean,True
+2025-12-25,Amory,Gaji,15000,1,15000,Gaji December 2025 - Karpet,True
+2025-12-25,Rio,Gaji,30000,9,270000,Gaji December 2025 - Deep Clean,True
+2025-12-25,Rio,Gaji,25000,2,50000,Gaji December 2025 - Tas,True
+2025-12-25,Vian,Gaji,30000,9,270000,Gaji December 2025 - Deep Clean,True
+2025-12-25,Vian,Gaji,20000,1,20000,Gaji December 2025 - Fast Clean,True
+2026-01-01,Eraser Suede,Undersole,37000,1,37000,,True
+2026-01-02,Leather Balm,Simplycist,31804,1,31804,,True
+2026-01-03,Plastik Sepatu,No name,85000,1,85000,,True
+2026-01-04,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
+2026-01-07,Parfume Sepatu,Bowin,15400,2,30800,,True
+2026-01-08,Insole Brush,HYPOSPOT,20962,1,20962,,True
+2026-01-08,Spons,Apen,13772,1,13772,,True
+2026-01-11,Microfiber,Olaf,32500,3,97500,,True
+2026-01-11,Silica Gel,General,16650,1,16650,,True
+2026-01-25,Amory,Gaji,30000,6,180000,Gaji January 2026 - Deep Clean,True
+2026-01-25,Rio,Gaji,30000,4,120000,Gaji January 2026 - Deep Clean,True
+2026-01-25,Vian,Gaji,30000,6,180000,Gaji January 2026 - Deep Clean,True
+2026-01-25,Vian,Gaji,20000,1,20000,Gaji January 2026 - Fast Clean,True
+2026-01-25,Vian,Gaji,25000,1,25000,Gaji January 2026 - Tas,True
+2026-02-01,Plastik Sepatu,No name,85000,1,85000,,True
+2026-02-25,Amory,Gaji,30000,6,180000,Gaji February 2026 - Deep Clean,True
+2026-02-25,Amory,Gaji,20000,1,20000,Gaji February 2026 - Fast Clean,True
+2026-02-25,Amory,Gaji,25000,1,25000,Gaji February 2026 - Reparasi,True
+2026-02-25,Rio,Gaji,30000,8,240000,Gaji February 2026 - Deep Clean,True
+2026-02-25,Rio,Gaji,25000,1,25000,Gaji February 2026 - Reparasi,True
+2026-02-25,Vian,Gaji,30000,2,60000,Gaji February 2026 - Deep Clean,True
+2026-02-25,Vian,Gaji,20000,1,20000,Gaji February 2026 - Fast Clean,True
+2026-02-25,Vian,Gaji,25000,1,25000,Gaji February 2026 - Tas,True
+2026-03-01,Andrrows Shoe Cleaner,Andrrows,128800,1,128800,,True
+2026-03-03,Spons,Apen,13772,1,13772,,True
+2026-03-09,Plastik Sepatu,No name,85000,1,85000,,True
+2026-03-10,Silica Gel,General,16650,1,16650,,True
+2026-03-25,Amory,Gaji,30000,4,120000,Gaji March 2026 - Deep Clean,True
+2026-03-25,Rio,Gaji,30000,6,180000,Gaji March 2026 - Deep Clean,True
+2026-03-25,Vian,Gaji,30000,2,60000,Gaji March 2026 - Deep Clean,True
+2026-03-25,Vian,Gaji,20000,1,20000,Gaji March 2026 - Fast Clean,True
+2026-04-03,Parfume Sepatu,Bowin,15400,2,30800,,True
+2026-04-03,Plastik Sepatu,No name,85000,1,85000,,True
 2026-04-04,Microfiber,Olaf,32500,3,97500,,True
-2026-04-05,Plastik Sepatu,No name,85000,1,85000,,True
-2026-04-09,Parfume Sepatu,Bowin,15400,2,30800,,True

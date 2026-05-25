@@ -30,3 +30,5 @@ logs/
 
 # Jupyter
 .ipynb_checkpoints/
+
+json/

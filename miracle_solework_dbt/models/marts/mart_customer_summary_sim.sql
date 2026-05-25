@@ -1,6 +1,5 @@
 WITH orders AS (
     SELECT * FROM {{ ref('stg_orders') }}
-    WHERE is_synthetic = true
 ),
 
 aggregated AS (
@@ -13,9 +12,10 @@ aggregated AS (
         sum(discount) AS total_discount_actual,
         sum(expected_discount) AS total_discount_expected,
         sum(discount_gap) AS total_discount_gap,
-        count(CASE WHEN is_discount_missed THEN 1 END) AS total_missed_discount_count
+        count(CASE WHEN is_discount_missed THEN 1 END) AS total_missed_discount_count,
+        data_source
     FROM orders
-    GROUP BY customer_name_clean
+    GROUP BY customer_name_clean, data_source
 ),
 
 with_tier AS (
